@@ -30,8 +30,10 @@ Then in your terminal, ```cd``` into the repo directory and execute the followin
 ```
 sudo cp -r Empty\ Application.xctemplate /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project\ Templates/iOS/Application/
 ```
-you can also do with shell:pls modify PROJECT_TEMPLATES_PATH and FILE_TEMPLATES_PATH as your need.
-Include:
+you can also do with shell:
+
+pls modify PROJECT_TEMPLATES_PATH and FILE_TEMPLATES_PATH as your need.
+
 
 ```sh
 # !/bin/sh
@@ -63,7 +65,12 @@ This has only been tested against Xcode 6.1. If this breaks please [let me know]
 
 ##中文
 
-在Apple最新的XCode6.x中没有了EmptyApplication模板，同时变换了位置的还有category，extension，protocol，这对一个老人来说是不能别接受的，同时也可以看出Apple在主力推荐IB和StoryBoard。好在XCode可以添加模板，而且可以自定义模板。下面以添加EmptyApplication模板为例做下介绍：
+在Apple最新的XCode6.x中没有了EmptyApplication模板，同时变换了位置的还有category，extension，protocol，这对一个老人来说是不能别接受的，同时也可以看出Apple在主力推荐IB和StoryBoard。好在XCode可以添加模板，而且可以自定义模板。
+
+<p align="center"><img title="Open and close animation" src="https://raw.github.com/rnystrom/Xcode-Empty-Application/master/screenshot.jpg"/></p>
+
+
+下面以添加EmptyApplication模板为例做下介绍：
 
 首先可以到 XCode5.x中复制 Empty Application 模板，定位位置如下：
 
@@ -81,7 +88,7 @@ This has only been tested against Xcode 6.1. If this breaks please [let me know]
 sudo cp -r Empty\ Application.xctemplate /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project\ Templates/iOS/Application/
 ```
 
-可参考上文写的shell脚本。（shell 脚本中以 Xcode6为例）请自行替换 PROJECT_TEMPLATES_PATH 与 FILE_TEMPLATES_PATH as your need.
+也可使用shell脚本（shell 脚本中以 Xcode6为例），请自行替换 PROJECT_TEMPLATES_PATH 与 FILE_TEMPLATES_PATH as your need.
 Include:
 重启Xcode。
 
