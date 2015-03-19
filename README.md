@@ -1,7 +1,10 @@
 # XcodeMissingTemplates
-Add
-Add OC category templates to Xcode 6，pls modify PROJECT_TEMPLATES_PATH and FILE_TEMPLATES_PATH as your need.
-Include:
+
+中文在文章下部分：
+
+##English
+
+Add Missing templates to Xcode 6.x，Include:
 
 ⓵Empty Application.xctemplate
 
@@ -27,7 +30,8 @@ Then in your terminal, ```cd``` into the repo directory and execute the followin
 ```
 sudo cp -r Empty\ Application.xctemplate /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project\ Templates/iOS/Application/
 ```
-you can also do with shell:
+you can also do with shell:pls modify PROJECT_TEMPLATES_PATH and FILE_TEMPLATES_PATH as your need.
+Include:
 
 ```sh
 # !/bin/sh
@@ -55,9 +59,10 @@ IFS=$SAVEIFS
 
 # Support
 
-This has only been tested against Xcode 6.1. If this breaks please [let me know](http://weibo.com/luohanchenyilong/).
+This has only been tested against Xcode 6.1. If this breaks please [let me know](https://twitter.com/stevechen1010).
 
-中文：
+##中文
+
 在Apple最新的XCode6.x中没有了EmptyApplication模板，同时变换了位置的还有category，extension，protocol，这对一个老人来说是不能别接受的，同时也可以看出Apple在主力推荐IB和StoryBoard。好在XCode可以添加模板，而且可以自定义模板。下面以添加EmptyApplication模板为例做下介绍：
 
 首先可以到 XCode5.x中复制 Empty Application 模板，定位位置如下：
@@ -76,8 +81,34 @@ This has only been tested against Xcode 6.1. If this breaks please [let me know]
 sudo cp -r Empty\ Application.xctemplate /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project\ Templates/iOS/Application/
 ```
 
-可参考上文写的shell脚本。（shell 脚本中以 Xcode6为例）
-重启Xcode。​
+可参考上文写的shell脚本。（shell 脚本中以 Xcode6为例）请自行替换 PROJECT_TEMPLATES_PATH 与 FILE_TEMPLATES_PATH as your need.
+Include:
+重启Xcode。
+
+```sh
+# !/bin/sh
+
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+PROJECT_TEMPLATES_PATH="/Applications/Xcode6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"
+FILE_TEMPLATES_PATH="/Applications/Xcode6.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source"
+
+EMPTY_APPLICATION_PATH="$PWD/Empty Application.xctemplate"
+
+OC_CATEGORY_PATH="$PWD/Objective-C category.xctemplate"
+OC_PROTOCOL_PATH="$PWD/Objective-C protocol.xctemplate"
+OC_EXTENSION_PATH="$PWD/Objective-C class extension.xctemplate"
+
+cp -R $EMPTY_APPLICATION_PATH $PROJECT_TEMPLATES_PATH
+
+cp -R $OC_CATEGORY_PATH $FILE_TEMPLATES_PATH
+cp -R $OC_PROTOCOL_PATH $FILE_TEMPLATES_PATH
+cp -R $OC_EXTENSION_PATH $FILE_TEMPLATES_PATH
+
+IFS=$SAVEIFS
+```
+
 
 # Support
 
